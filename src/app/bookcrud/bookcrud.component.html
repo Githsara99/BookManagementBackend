@@ -1,0 +1,67 @@
+<div class="container mt-4">
+    <div class="card">
+        <h1>Book Registration</h1>
+        <form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" 
+                       class="form-control" id="title" placeholder="Enter Book Title">
+            </div>
+  
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" [(ngModel)]="author" [ngModelOptions]="{standalone: true}" 
+                       class="form-control" id="author" placeholder="Enter Author Name">
+            </div>
+  
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" [(ngModel)]="isbn" [ngModelOptions]="{standalone: true}" 
+                       class="form-control" id="isbn" placeholder="Enter ISBN">
+            </div>
+  
+            <div class="form-group">
+                <label for="publicationDate">Publication Date</label>
+                <input type="date" [(ngModel)]="publicationDate" [ngModelOptions]="{standalone: true}" 
+                       class="form-control" id="publicationDate" placeholder="Enter Publication Date">
+            </div>
+  
+            <button type="submit" class="btn btn-primary mt-4" (click)="save()">Save</button>
+        </form>
+    </div>
+  
+    <div class="container mt-4">
+        <h1>Book Table</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Publication Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="!isResultLoaded">
+                    <td colspan="6" class="text-center">
+                        <h1>Loading.................</h1>
+                    </td>
+                </tr>
+                <tr *ngFor="let bookItem of BookArray">
+                    <td>{{ bookItem.id }}</td>
+                    <td>{{ bookItem.title }}</td>
+                    <td>{{ bookItem.author }}</td>
+                    <td>{{ bookItem.isbn }}</td>
+                    <td>{{ bookItem.publicationDate }}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" (click)="setUpdate(bookItem)">Edit</button>
+                        <button type="button" class="btn btn-danger" (click)="setDelete(bookItem)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  

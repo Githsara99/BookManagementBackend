@@ -95,13 +95,17 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
+           "styles": [
+             "src/styles.scss",
+           "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "1950d1f0-00d1-4b1d-8149-3e2d0d475bd3"
   }
 }
